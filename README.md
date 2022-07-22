@@ -1,1 +1,1 @@
-# TamagotchiProject
+# ☘️TamagotchiProject
