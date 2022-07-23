@@ -50,7 +50,9 @@ class PopupViewController: UIViewController {
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         
-        vc.tamaData = tamaData
+        UserDefaults.standard.set(tamaData?.kind, forKey: "tamaName")
+        UserDefaults.standard.set(tamaData?.number, forKey: "tamaNumber")
+        UserDefaults.standard.set(true, forKey: "Main")
         
         present(nav, animated: true)
     }

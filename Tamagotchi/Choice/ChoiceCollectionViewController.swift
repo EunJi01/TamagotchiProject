@@ -19,6 +19,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
         navigationItem.title = "다마고치 선택하기"
         navigationItem.titleView?.tintColor = .fontColor
         collectionView.backgroundColor = .backgroundColor
+        UserDefaults.standard.set(false, forKey: "First")
         
     }
     

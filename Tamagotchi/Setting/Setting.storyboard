@@ -64,18 +64,33 @@
                                 <rect key="frame" x="32" y="84" width="350" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="renameTextFieldReturn:" destination="Y6W-OH-hqX" eventType="editingDidEndOnExit" id="fgb-c3-pUo"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="jhi-LX-UfY" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="40" id="4LN-HH-fH8"/>
                             <constraint firstItem="jhi-LX-UfY" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="32" id="8db-Hm-sVP"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="jhi-LX-UfY" secondAttribute="trailing" constant="32" id="kdh-PN-kCX"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="eiu-T4-u8A" appends="YES" id="e3t-Dz-uKy"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="renameTextField" destination="jhi-LX-UfY" id="npH-kW-WjE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="eiu-T4-u8A">
+                    <connections>
+                        <action selector="tapGesture:" destination="Y6W-OH-hqX" id="Qr8-oR-z57"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="152" y="46"/>
         </scene>

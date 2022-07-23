@@ -25,6 +25,7 @@
 		B6095724288C22560004E05B /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095723288C22560004E05B /* RenameViewController.swift */; };
 		B609572A288C24A80004E05B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B6095729288C24A80004E05B /* Toast */; };
 		B609572D288C25730004E05B /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B609572C288C25730004E05B /* TextFieldEffects */; };
+		B6095730288C35E60004E05B /* SettingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609572F288C35E60004E05B /* SettingInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		B609571F288C22200004E05B /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		B6095721288C22360004E05B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		B6095723288C22560004E05B /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
+		B609572F288C35E60004E05B /* SettingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				B60956F0288A77480004E05B /* AppDelegate.swift */,
 				B60956F2288A77480004E05B /* SceneDelegate.swift */,
 				B6095714288AAE960004E05B /* TamaInfo.swift */,
+				B609572F288C35E60004E05B /* SettingInfo.swift */,
 				B609571E288BD4210004E05B /* Extension */,
 				B6095708288A9BEF0004E05B /* Choice */,
 				B609570F288A9DEB0004E05B /* Main */,
@@ -216,6 +219,7 @@
 			files = (
 				B609570E288A9CEB0004E05B /* PopupViewController.swift in Sources */,
 				B60956F1288A77480004E05B /* AppDelegate.swift in Sources */,
+				B6095730288C35E60004E05B /* SettingInfo.swift in Sources */,
 				B6095715288AAE960004E05B /* TamaInfo.swift in Sources */,
 				B60956F3288A77480004E05B /* SceneDelegate.swift in Sources */,
 				B6095724288C22560004E05B /* RenameViewController.swift in Sources */,

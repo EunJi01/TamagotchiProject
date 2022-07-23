@@ -22,26 +22,40 @@ class MainViewController: UIViewController {
     @IBOutlet weak var waterButton: UIButton!
     
     static let identifier = "MainViewController"
-    var tamaData: Tama?
     var tamaExp = TamaExp()
     var level = UserDefaults.standard.integer(forKey: "level")
-    var name = UserDefaults.standard.string(forKey: "userName")
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        UserDefaults.standard.set(tamaData?.kind, forKey: "tamaName")
-        UserDefaults.standard.set(tamaData?.number, forKey: "tamaNumber")
+
+        
+        if UserDefaults.standard.string(forKey: "userName") == nil {
+            UserDefaults.standard.set("대장", forKey: "userName")
+        }
         
         view.backgroundColor = .backgroundColor
         designNavigationBar()
         designContents()
         levelData()
 
+        
+    }
+    
+    func designNavigationBar() {
+        navigationItem.title = "\(UserDefaults.standard.string(forKey: "userName")!)님의 다마고치"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
+        // 컬러 체인지
     }
     
     @objc func settingButtonTapped() {
-        // 설정
+        let sb = UIStoryboard(name: "Setting", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: SettingTableViewController.identifier) as? SettingTableViewController else {
+            return
+        }
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func riceButtonTapped(_ sender: UIButton) {
@@ -81,17 +95,11 @@ class MainViewController: UIViewController {
         waterTextField.text = nil
     }
     
-    func designNavigationBar() {
-        navigationItem.title = "\(name)님의 다마고치"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
-        // 컬러 체인지
-    }
-    
     func designContents() {
         bubbleImageView.image = UIImage(named: "bubble")
         bubbleImageView.contentMode = .scaleToFill
         
-        tamagotchiNameLabel.designNameLabel(name: tamaData?.kind ?? "오류")
+        tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: "tamaName") ?? "오류")
         messageLabel.numberOfLines = 0
         
         riceButton.designButton(lebelText: "밥먹기")
@@ -109,7 +117,7 @@ class MainViewController: UIViewController {
         let level = tamaExp.calculate()
         let rice = UserDefaults.standard.integer(forKey: "rice")
         let water = UserDefaults.standard.integer(forKey: "water")
-        guard let number = tamaData?.number else { return }
+        guard let number = UserDefaults.standard.string(forKey: "tamaNumber") else { return }
         
         tamagotchiLevelLabel.disignNormalLabel(text: "LV\(level), 밥알\(rice)개, 물방울\(water)개")
         print("\(number)-\(level)")
