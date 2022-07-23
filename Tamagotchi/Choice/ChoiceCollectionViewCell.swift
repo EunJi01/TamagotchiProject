@@ -18,8 +18,7 @@ class ChoiceCollectionViewCell: UICollectionViewCell {
     func configure(data: Tama) {
 
         tamagotchiImageView.image = data.image
-        tamagotchiNameLabel.text = data.kind
-        tamagotchiNameLabel.designLable()
+        tamagotchiNameLabel.designNameLabel(name: data.kind)
 
     }
     

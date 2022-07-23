@@ -16,10 +16,15 @@
 		B609570A288A9C9A0004E05B /* ChoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095709288A9C9A0004E05B /* ChoiceCollectionViewController.swift */; };
 		B609570C288A9CA70004E05B /* ChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609570B288A9CA70004E05B /* ChoiceCollectionViewCell.swift */; };
 		B609570E288A9CEB0004E05B /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609570D288A9CEB0004E05B /* PopupViewController.swift */; };
-		B6095713288A9EB10004E05B /* PopupViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095712288A9EB10004E05B /* PopupViewController + Extension.swift */; };
-		B6095715288AAE960004E05B /* Tamagotchi.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095714288AAE960004E05B /* Tamagotchi.swift */; };
+		B6095713288A9EB10004E05B /* Button, Label, TextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */; };
+		B6095715288AAE960004E05B /* TamaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095714288AAE960004E05B /* TamaInfo.swift */; };
 		B609571B288ACE070004E05B /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609571A288ACE070004E05B /* Color + Extension.swift */; };
 		B609571D288AFF2C0004E05B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609571C288AFF2C0004E05B /* MainViewController.swift */; };
+		B6095720288C22200004E05B /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B609571F288C22200004E05B /* Setting.storyboard */; };
+		B6095722288C22360004E05B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095721288C22360004E05B /* SettingTableViewController.swift */; };
+		B6095724288C22560004E05B /* RenameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095723288C22560004E05B /* RenameViewController.swift */; };
+		B609572A288C24A80004E05B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B6095729288C24A80004E05B /* Toast */; };
+		B609572D288C25730004E05B /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B609572C288C25730004E05B /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,10 +39,13 @@
 		B6095709288A9C9A0004E05B /* ChoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewController.swift; sourceTree = "<group>"; };
 		B609570B288A9CA70004E05B /* ChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		B609570D288A9CEB0004E05B /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
-		B6095712288A9EB10004E05B /* PopupViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PopupViewController + Extension.swift"; sourceTree = "<group>"; };
-		B6095714288AAE960004E05B /* Tamagotchi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tamagotchi.swift; sourceTree = "<group>"; };
+		B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button, Label, TextField + Extension.swift"; sourceTree = "<group>"; };
+		B6095714288AAE960004E05B /* TamaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaInfo.swift; sourceTree = "<group>"; };
 		B609571A288ACE070004E05B /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
 		B609571C288AFF2C0004E05B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		B609571F288C22200004E05B /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		B6095721288C22360004E05B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		B6095723288C22560004E05B /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B609572A288C24A80004E05B /* Toast in Frameworks */,
+				B609572D288C25730004E05B /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +82,13 @@
 			children = (
 				B60956F0288A77480004E05B /* AppDelegate.swift */,
 				B60956F2288A77480004E05B /* SceneDelegate.swift */,
-				B6095714288AAE960004E05B /* Tamagotchi.swift */,
-				B6095712288A9EB10004E05B /* PopupViewController + Extension.swift */,
-				B609571A288ACE070004E05B /* Color + Extension.swift */,
+				B6095714288AAE960004E05B /* TamaInfo.swift */,
+				B609571E288BD4210004E05B /* Extension */,
 				B6095708288A9BEF0004E05B /* Choice */,
 				B609570F288A9DEB0004E05B /* Main */,
-				B60956F9288A77490004E05B /* Assets.xcassets */,
+				B6095725288C22640004E05B /* Setting */,
 				B60956FB288A77490004E05B /* LaunchScreen.storyboard */,
+				B60956F9288A77490004E05B /* Assets.xcassets */,
 				B60956FE288A77490004E05B /* Info.plist */,
 			);
 			path = Tamagotchi;
@@ -104,6 +114,25 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		B609571E288BD4210004E05B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */,
+				B609571A288ACE070004E05B /* Color + Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		B6095725288C22640004E05B /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B609571F288C22200004E05B /* Setting.storyboard */,
+				B6095721288C22360004E05B /* SettingTableViewController.swift */,
+				B6095723288C22560004E05B /* RenameViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +149,10 @@
 			dependencies = (
 			);
 			name = Tamagotchi;
+			packageProductDependencies = (
+				B6095729288C24A80004E05B /* Toast */,
+				B609572C288C25730004E05B /* TextFieldEffects */,
+			);
 			productName = Tamagotchi;
 			productReference = B60956ED288A77480004E05B /* Tamagotchi.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +181,10 @@
 				Base,
 			);
 			mainGroup = B60956E4288A77480004E05B;
+			packageReferences = (
+				B6095728288C24A80004E05B /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				B609572B288C25730004E05B /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+			);
 			productRefGroup = B60956EE288A77480004E05B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -164,6 +201,7 @@
 			files = (
 				B60956FD288A77490004E05B /* LaunchScreen.storyboard in Resources */,
 				B6095707288A9BBC0004E05B /* Choice.storyboard in Resources */,
+				B6095720288C22200004E05B /* Setting.storyboard in Resources */,
 				B60956FA288A77490004E05B /* Assets.xcassets in Resources */,
 				B60956F8288A77480004E05B /* Main.storyboard in Resources */,
 			);
@@ -178,10 +216,12 @@
 			files = (
 				B609570E288A9CEB0004E05B /* PopupViewController.swift in Sources */,
 				B60956F1288A77480004E05B /* AppDelegate.swift in Sources */,
-				B6095715288AAE960004E05B /* Tamagotchi.swift in Sources */,
+				B6095715288AAE960004E05B /* TamaInfo.swift in Sources */,
 				B60956F3288A77480004E05B /* SceneDelegate.swift in Sources */,
+				B6095724288C22560004E05B /* RenameViewController.swift in Sources */,
+				B6095722288C22360004E05B /* SettingTableViewController.swift in Sources */,
 				B609571B288ACE070004E05B /* Color + Extension.swift in Sources */,
-				B6095713288A9EB10004E05B /* PopupViewController + Extension.swift in Sources */,
+				B6095713288A9EB10004E05B /* Button, Label, TextField + Extension.swift in Sources */,
 				B609571D288AFF2C0004E05B /* MainViewController.swift in Sources */,
 				B609570A288A9C9A0004E05B /* ChoiceCollectionViewController.swift in Sources */,
 				B609570C288A9CA70004E05B /* ChoiceCollectionViewCell.swift in Sources */,
@@ -406,6 +446,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B6095728288C24A80004E05B /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		B609572B288C25730004E05B /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B6095729288C24A80004E05B /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B6095728288C24A80004E05B /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		B609572C288C25730004E05B /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B609572B288C25730004E05B /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B60956E5288A77480004E05B /* Project object */;
 }

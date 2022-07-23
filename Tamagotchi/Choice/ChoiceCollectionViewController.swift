@@ -10,12 +10,15 @@ import UIKit
 class ChoiceCollectionViewController: UICollectionViewController {
 
     static let identifier = "ChoiceCollectionViewController"
-    let tamaList = Tamagotchi()
+    let tamaList = TamaInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         layout()
+        navigationItem.title = "다마고치 선택하기"
+        navigationItem.titleView?.tintColor = .fontColor
+        collectionView.backgroundColor = .backgroundColor
         
     }
     
@@ -33,7 +36,6 @@ class ChoiceCollectionViewController: UICollectionViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 30
