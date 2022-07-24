@@ -2,7 +2,7 @@
 
 ### 문제점
 </br>
-**SPM**
+** SPM **
 IQKeyboardManager // 다운로드 에러가 계속 발생...
 </br>
 **ChoiceCollectionViewController**
