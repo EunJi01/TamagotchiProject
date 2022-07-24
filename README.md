@@ -18,7 +18,7 @@ IQKeyboardManager // 다운로드 에러가 계속 발생...
 </br>
 
 **PopupViewController** </br>
-startButtonTapped // 다마고치 변경화면일 때 (UserDefaults.standard.bool(forKey: "change")가 trued일 때) 시작하기 버튼을 누르면 dismiss -> pop -> pop 해주고싶은데 dismiss 후 Pop이 안됨
+startButtonTapped // 다마고치 변경화면일 때 (UserDefaults.standard.bool(forKey: "change")가 true일 때) 시작하기 버튼을 누르면 dismiss -> pop -> pop 해주고싶은데 dismiss 후 Pop이 안됨
 
 </br>
 </br>
