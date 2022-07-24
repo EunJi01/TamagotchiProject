@@ -17,6 +17,7 @@ extension UITextField {
         self.keyboardType = .numberPad
         self.textAlignment = .center
         self.backgroundColor = .backgroundColor
+        self.borderStyle = .none
     }
     
     func renameTextField(text: String) {
@@ -24,6 +25,7 @@ extension UITextField {
         self.placeholder = text
         self.textColor = .fontColor
         self.font = .systemFont(ofSize: 14)
+        self.borderStyle = .none
         
     }
 }

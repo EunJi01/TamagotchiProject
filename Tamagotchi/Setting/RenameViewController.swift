@@ -20,6 +20,7 @@ class RenameViewController: UIViewController {
         
         navigationItem.title = "대장님 이름 정하기"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(save))
+        self.navigationController?.navigationBar.topItem?.title = ""
     }
     
     @objc func save() {

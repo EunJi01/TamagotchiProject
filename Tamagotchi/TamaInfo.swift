@@ -42,4 +42,12 @@ struct TamaExp {
         return level > 9 ? 9 : level
     }
     
+    func expPercentStr() -> String {
+        let exp = 10 + (rice / 5) + (water / 2)
+        if exp >= 100 {
+            return "이미 전 어른이라구요!"
+        } else {
+            return "성체까지 \(100 - exp)% 남았어용!"
+        }
+    }
 }

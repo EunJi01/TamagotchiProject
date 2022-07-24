@@ -7,7 +7,6 @@
 
 import UIKit
 import Toast
-import TextFieldEffects
 
 class MainViewController: UIViewController {
     
@@ -34,7 +33,9 @@ class MainViewController: UIViewController {
         view.backgroundColor = .backgroundColor
         designContents()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
-        // 네비게이션 아이템 컬러 체인지
+        self.navigationController?.navigationBar.tintColor = .fontColor
+        levelData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,12 +59,14 @@ class MainViewController: UIViewController {
         
         if !(count == nil) {
             if count! > 99 {
-                view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ")
+                view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ", position: .top)
             } else {
                 tamaExp.rice += count!
+                view.makeToast(tamaExp.expPercentStr(), position: .top)
             }
         } else {
             tamaExp.rice += 1
+            view.makeToast(tamaExp.expPercentStr(), position: .top)
         }
         
         UserDefaults.standard.set(tamaExp.rice, forKey: "rice")
@@ -77,14 +80,17 @@ class MainViewController: UIViewController {
         
         if !(count == nil) {
             if count! > 49 {
-                view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ")
+                view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ", position: .top)
             } else {
                 tamaExp.water += count!
+                view.makeToast(tamaExp.expPercentStr(), position: .top)
             }
         } else {
             tamaExp.water += 1
+            view.makeToast(tamaExp.expPercentStr(), position: .top)
         }
         
+        print(tamaExp.calculate())
         UserDefaults.standard.set(tamaExp.water, forKey: "water")
         levelData()
         waterTextField.text = nil
@@ -123,7 +129,6 @@ class MainViewController: UIViewController {
     
     func loadTamaData() {
         UserDefaults.standard.string(forKey: "tamaName")
-        
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {

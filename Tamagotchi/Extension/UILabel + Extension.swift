@@ -26,5 +26,4 @@ extension UILabel {
         self.backgroundColor = .backgroundColor
         self.text = name
     }
-
 }

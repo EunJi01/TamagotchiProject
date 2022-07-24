@@ -18,7 +18,7 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.title = "설정"
-        navigationItem.titleView?.tintColor = .fontColor
+        self.navigationController?.navigationBar.topItem?.title = ""
         tableView.backgroundColor = .backgroundColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
@@ -66,6 +66,10 @@ class SettingTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+           52
+       }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         switch indexPath.row {
@@ -111,10 +115,10 @@ class SettingTableViewController: UITableViewController {
         noticeAlert()
     }
     
-    // rootView로 돌아가는 코드가 동작할 때가 있고 하지 않을 때가 있는데 조건을 모르겠습니다ㅠ ㅠ
+    // 어플을 시뮬레이터에서 종료했다가 다시 켜서 초기화하면 rootView로 안돌아가짐 --> 특정 조건에서 핸들러가 작동을 안함
     func noticeAlert() {
         let alert = UIAlertController(title: "다마고치가 자연으로 돌아갔어요!", message: "초기 화면으로 이동합니다", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in self.view.window?.rootViewController?.dismiss(animated: true, completion: nil) })
+        let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in /*self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)*/print("리셋 실행됨") })
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
