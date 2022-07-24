@@ -23,30 +23,25 @@ class MainViewController: UIViewController {
     
     static let identifier = "MainViewController"
     var tamaExp = TamaExp()
-    var level = UserDefaults.standard.integer(forKey: "level")
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
         
         if UserDefaults.standard.string(forKey: "userName") == nil {
             UserDefaults.standard.set("대장", forKey: "userName")
         }
         
         view.backgroundColor = .backgroundColor
-        designNavigationBar()
         designContents()
-        levelData()
-
-        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
+        // 네비게이션 아이템 컬러 체인지
     }
     
-    func designNavigationBar() {
-        navigationItem.title = "\(UserDefaults.standard.string(forKey: "userName")!)님의 다마고치"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
-        // 컬러 체인지
+    override func viewWillAppear(_ animated: Bool) {
+        tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: "tamaName") ?? "오류")
+        guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
+        navigationItem.title = "\(userName)님의 다마고치"
+        levelData()
     }
     
     @objc func settingButtonTapped() {
@@ -98,8 +93,7 @@ class MainViewController: UIViewController {
     func designContents() {
         bubbleImageView.image = UIImage(named: "bubble")
         bubbleImageView.contentMode = .scaleToFill
-        
-        tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: "tamaName") ?? "오류")
+
         messageLabel.numberOfLines = 0
         
         riceButton.designButton(lebelText: "밥먹기")

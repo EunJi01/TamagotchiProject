@@ -23,12 +23,13 @@ class RenameViewController: UIViewController {
     }
     
     @objc func save() {
-        if (renameTextField.text?.isEmpty)! {
-            view.makeToast("글자를 입력해주세요!")
+        if (renameTextField.text?.count)! < 2 || (renameTextField.text?.count)! > 6 {
+            view.makeToast("이름은 2~6글자로 입력해주세용!", position: .top)
         } else {
             UserDefaults.standard.set("\(renameTextField.text!)", forKey: "userName")
-            view.makeToast("이름 변경이 완료되었어요!")
-            view.endEditing(true)
+            //view.makeToast("이름 변경이 완료되었어요!")
+            //view.endEditing(true)
+            navigationController?.popViewController(animated: true)
         }
     }
     

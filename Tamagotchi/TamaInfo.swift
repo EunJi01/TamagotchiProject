@@ -38,6 +38,7 @@ struct TamaExp {
     func calculate() -> Int {
         let exp = 10 + (rice / 5) + (water / 2)
         let level = exp / 10
+        UserDefaults.standard.set(level, forKey: "level")
         return level > 9 ? 9 : level
     }
     

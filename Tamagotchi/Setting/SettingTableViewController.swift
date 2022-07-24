@@ -10,6 +10,7 @@ import UIKit
 class SettingTableViewController: UITableViewController {
 
     static let identifier = "SettingTableViewController"
+    
     let menu = ["내 이름 설정하기", "다마고치 변경하기", "데이터 초기화"]
     let menuImageName = ["pencil", "moon.fill", "arrow.clockwise"]
     
@@ -17,8 +18,22 @@ class SettingTableViewController: UITableViewController {
         super.viewDidLoad()
 
         navigationItem.title = "설정"
+        navigationItem.titleView?.tintColor = .fontColor
         tableView.backgroundColor = .backgroundColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+//        print(UserDefaults.standard.bool(forKey: "pop"))
+//        if UserDefaults.standard.bool(forKey: "pop") == true {
+//            navigationController?.popViewController(animated: true)
+//            UserDefaults.standard.set(false, forKey: "pop")
+//            print("테이블뷰 pop 실행됨")
+//        }
+        
+        tableView.reloadData()
         
     }
     
@@ -29,7 +44,9 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "SettingTableViewCell") else {
+            return UITableViewCell()
+        }
         
         cell.textLabel?.text = menu[indexPath.row]
         cell.accessoryType = .disclosureIndicator
@@ -56,16 +73,24 @@ class SettingTableViewController: UITableViewController {
             let sb = UIStoryboard(name: "Setting", bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: RenameViewController.identifier)
             navigationController?.pushViewController(vc, animated: true)
-        case 1: print("다마고치 변경하기")
+        case 1:
+            tamaChange()
         case 2:
             resetAlert()
-        default: print("존재하지 않는 셀")
-            
+        default:
+            view.makeToast("오류가 발생했어요ㅠㅠ")
         }
     }
     
     func tamaChange() {
-        // 초이스로 푸쉬(초이스 네비바 타이틀 변경) -> 팝업뷰 -> 루트뷰 디스미스
+        let sb = UIStoryboard(name: "Choice", bundle: nil)
+        guard let vc = sb.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
+            return
+        }
+        
+        UserDefaults.standard.set(true, forKey: "change")
+        navigationController?.pushViewController(vc, animated: true)
+        
     }
     
     func resetAlert() {
@@ -82,6 +107,16 @@ class SettingTableViewController: UITableViewController {
         for key in UserDefaults.standard.dictionaryRepresentation().keys {
             UserDefaults.standard.removeObject(forKey: key.description)
         }
-        self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        UserDefaults.standard.set(false, forKey: "Main")
+        noticeAlert()
+    }
+    
+    // rootView로 돌아가는 코드가 동작할 때가 있고 하지 않을 때가 있는데 조건을 모르겠습니다ㅠ ㅠ
+    func noticeAlert() {
+        let alert = UIAlertController(title: "다마고치가 자연으로 돌아갔어요!", message: "초기 화면으로 이동합니다", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in self.view.window?.rootViewController?.dismiss(animated: true, completion: nil) })
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
 }

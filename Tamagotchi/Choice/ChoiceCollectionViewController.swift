@@ -16,26 +16,46 @@ class ChoiceCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
 
         layout()
-        navigationItem.title = "다마고치 선택하기"
+        
         navigationItem.titleView?.tintColor = .fontColor
         collectionView.backgroundColor = .backgroundColor
-        UserDefaults.standard.set(false, forKey: "First")
+        UserDefaults.standard.set(false, forKey: "Main")
+        
+        navigationItem.title = UserDefaults.standard.bool(forKey: "change") == false ? "다마고치 선택하기" : "다마고치 변경하기"
         
     }
     
+//    override func viewWillAppear(_ animated: Bool) {
+//
+//        print(#function)
+//
+//        if UserDefaults.standard.bool(forKey: "pop") == true {
+//            print("팝 실행됨")
+//            print(UserDefaults.standard.bool(forKey: "Main"))
+//            self.navigationController?.popToRootViewController(animated: true)
+//        }
+//
+//    }
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let sb = UIStoryboard(name: "Choice", bundle: nil)
-        guard let vc = sb.instantiateViewController(withIdentifier: PopupViewController.identifier) as? PopupViewController else {
-            return
+        
+        if UserDefaults.standard.integer(forKey: "tamaNumber") == tamaList.tamagotchi[indexPath.row].number {
+            view.makeToast("이미 키우고 있는 다마고치예용!")
+        } else {
+            let sb = UIStoryboard(name: "Choice", bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: PopupViewController.identifier) as? PopupViewController else {
+                return
+            }
+            
+            guard indexPath.row < tamaList.tamagotchi.count else {
+                return
+            }
+            
+            vc.tamaData = tamaList.tamagotchi[indexPath.row]
+            vc.modalPresentationStyle = .overCurrentContext
+            present(vc, animated: true)
         }
         
-        guard indexPath.row < tamaList.tamagotchi.count else {
-            return
-        }
-        
-        vc.tamaData = tamaList.tamagotchi[indexPath.row]
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,9 +71,7 @@ class ChoiceCollectionViewController: UICollectionViewController {
         } else {
             cell.configure(data: tamaList.prepare)
         }
-        
-        print("\(indexPath.row)")
-        
+
         return cell
     }
     

@@ -16,9 +16,9 @@
 		B609570A288A9C9A0004E05B /* ChoiceCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095709288A9C9A0004E05B /* ChoiceCollectionViewController.swift */; };
 		B609570C288A9CA70004E05B /* ChoiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609570B288A9CA70004E05B /* ChoiceCollectionViewCell.swift */; };
 		B609570E288A9CEB0004E05B /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609570D288A9CEB0004E05B /* PopupViewController.swift */; };
-		B6095713288A9EB10004E05B /* Button, Label, TextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */; };
+		B6095713288A9EB10004E05B /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095712288A9EB10004E05B /* UIButton + Extension.swift */; };
 		B6095715288AAE960004E05B /* TamaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095714288AAE960004E05B /* TamaInfo.swift */; };
-		B609571B288ACE070004E05B /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609571A288ACE070004E05B /* Color + Extension.swift */; };
+		B609571B288ACE070004E05B /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609571A288ACE070004E05B /* UIColor + Extension.swift */; };
 		B609571D288AFF2C0004E05B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609571C288AFF2C0004E05B /* MainViewController.swift */; };
 		B6095720288C22200004E05B /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B609571F288C22200004E05B /* Setting.storyboard */; };
 		B6095722288C22360004E05B /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095721288C22360004E05B /* SettingTableViewController.swift */; };
@@ -26,6 +26,8 @@
 		B609572A288C24A80004E05B /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = B6095729288C24A80004E05B /* Toast */; };
 		B609572D288C25730004E05B /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = B609572C288C25730004E05B /* TextFieldEffects */; };
 		B6095730288C35E60004E05B /* SettingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B609572F288C35E60004E05B /* SettingInfo.swift */; };
+		B6095734288D437E0004E05B /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095733288D437E0004E05B /* UILabel + Extension.swift */; };
+		B6095736288D43BB0004E05B /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6095735288D43BB0004E05B /* UITextField + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,14 +42,16 @@
 		B6095709288A9C9A0004E05B /* ChoiceCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewController.swift; sourceTree = "<group>"; };
 		B609570B288A9CA70004E05B /* ChoiceCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		B609570D288A9CEB0004E05B /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
-		B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button, Label, TextField + Extension.swift"; sourceTree = "<group>"; };
+		B6095712288A9EB10004E05B /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		B6095714288AAE960004E05B /* TamaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TamaInfo.swift; sourceTree = "<group>"; };
-		B609571A288ACE070004E05B /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		B609571A288ACE070004E05B /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
 		B609571C288AFF2C0004E05B /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		B609571F288C22200004E05B /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
 		B6095721288C22360004E05B /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		B6095723288C22560004E05B /* RenameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenameViewController.swift; sourceTree = "<group>"; };
 		B609572F288C35E60004E05B /* SettingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingInfo.swift; sourceTree = "<group>"; };
+		B6095733288D437E0004E05B /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
+		B6095735288D43BB0004E05B /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,8 +124,10 @@
 		B609571E288BD4210004E05B /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B6095712288A9EB10004E05B /* Button, Label, TextField + Extension.swift */,
-				B609571A288ACE070004E05B /* Color + Extension.swift */,
+				B609571A288ACE070004E05B /* UIColor + Extension.swift */,
+				B6095733288D437E0004E05B /* UILabel + Extension.swift */,
+				B6095735288D43BB0004E05B /* UITextField + Extension.swift */,
+				B6095712288A9EB10004E05B /* UIButton + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -218,15 +224,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				B609570E288A9CEB0004E05B /* PopupViewController.swift in Sources */,
+				B6095736288D43BB0004E05B /* UITextField + Extension.swift in Sources */,
 				B60956F1288A77480004E05B /* AppDelegate.swift in Sources */,
 				B6095730288C35E60004E05B /* SettingInfo.swift in Sources */,
 				B6095715288AAE960004E05B /* TamaInfo.swift in Sources */,
 				B60956F3288A77480004E05B /* SceneDelegate.swift in Sources */,
 				B6095724288C22560004E05B /* RenameViewController.swift in Sources */,
 				B6095722288C22360004E05B /* SettingTableViewController.swift in Sources */,
-				B609571B288ACE070004E05B /* Color + Extension.swift in Sources */,
-				B6095713288A9EB10004E05B /* Button, Label, TextField + Extension.swift in Sources */,
+				B609571B288ACE070004E05B /* UIColor + Extension.swift in Sources */,
+				B6095713288A9EB10004E05B /* UIButton + Extension.swift in Sources */,
 				B609571D288AFF2C0004E05B /* MainViewController.swift in Sources */,
+				B6095734288D437E0004E05B /* UILabel + Extension.swift in Sources */,
 				B609570A288A9C9A0004E05B /* ChoiceCollectionViewController.swift in Sources */,
 				B609570C288A9CA70004E05B /* ChoiceCollectionViewCell.swift in Sources */,
 			);
@@ -381,9 +389,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Choice;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -394,7 +402,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -411,9 +419,9 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Choice;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -424,7 +432,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
