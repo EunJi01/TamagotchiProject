@@ -115,10 +115,10 @@ class SettingTableViewController: UITableViewController {
         noticeAlert()
     }
     
-    // 어플을 시뮬레이터에서 종료했다가 다시 켜서 초기화하면 rootView로 안돌아가짐 --> 특정 조건에서 핸들러가 작동을 안함
+    // 어플을 시뮬레이터에서 종료했다가 다시 켜서 초기화하면 rootView로 안돌아가짐 --> 특정 조건에서 핸들러가 작동을 안함 (print가 아예 안나옴)
     func noticeAlert() {
         let alert = UIAlertController(title: "다마고치가 자연으로 돌아갔어요!", message: "초기 화면으로 이동합니다", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in /*self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)*/print("리셋 실행됨") })
+        let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)/*print("리셋 실행됨")*/ })
         alert.addAction(cancel)
         
         present(alert, animated: true, completion: nil)
