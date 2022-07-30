@@ -10,7 +10,6 @@ import UIKit
 class ChoiceCollectionViewController: UICollectionViewController {
 
     static let identifier = "ChoiceCollectionViewController"
-    let tamaList = TamaInfo()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,39 +18,27 @@ class ChoiceCollectionViewController: UICollectionViewController {
         
         navigationItem.titleView?.tintColor = .fontColor
         collectionView.backgroundColor = .backgroundColor
-        UserDefaults.standard.set(false, forKey: "Main")
+        UserDefaults.standard.set(false, forKey: TamaEnum.UserDefualts.main.rawValue)
         
-        navigationItem.title = UserDefaults.standard.bool(forKey: "change") == false ? "다마고치 선택하기" : "다마고치 변경하기"
+        navigationItem.title = UserDefaults.standard.bool(forKey: TamaEnum.UserDefualts.change.rawValue) == false ? "다마고치 선택하기" : "다마고치 변경하기"
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//
-//        print(#function)
-//
-//        if UserDefaults.standard.bool(forKey: "pop") == true {
-//            print("팝 실행됨")
-//            print(UserDefaults.standard.bool(forKey: "Main"))
-//            self.navigationController?.popToRootViewController(animated: true)
-//        }
-//
-//    }
-    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        if UserDefaults.standard.integer(forKey: "tamaNumber") == tamaList.tamagotchi[indexPath.row].number {
+        if UserDefaults.standard.integer(forKey: TamaEnum.UserDefualts.tamaNumber.rawValue) == TamaInfo.tamagotchi[indexPath.row].number {
             view.makeToast("이미 키우고 있는 다마고치예용!")
         } else {
-            let sb = UIStoryboard(name: "Choice", bundle: nil)
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Choice.rawValue, bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: PopupViewController.identifier) as? PopupViewController else {
                 return
             }
             
-            guard indexPath.row < tamaList.tamagotchi.count else {
+            guard indexPath.row < TamaInfo.tamagotchi.count else {
                 return
             }
             
-            vc.tamaData = tamaList.tamagotchi[indexPath.row]
+            vc.tamaData = TamaInfo.tamagotchi[indexPath.row]
             vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true)
         }
@@ -65,11 +52,11 @@ class ChoiceCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoiceCollectionViewCell.identifier, for: indexPath) as? ChoiceCollectionViewCell else { return UICollectionViewCell() }
         
-        if indexPath.row < tamaList.tamagotchi.count {
-            let data = tamaList.tamagotchi[indexPath.row]
+        if indexPath.row < TamaInfo.tamagotchi.count {
+            let data = TamaInfo.tamagotchi[indexPath.row]
             cell.configure(data: data)
         } else {
-            cell.configure(data: tamaList.prepare)
+            cell.configure(data: TamaInfo.prepare)
         }
 
         return cell

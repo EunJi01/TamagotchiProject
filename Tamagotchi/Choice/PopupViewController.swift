@@ -58,16 +58,16 @@ class PopupViewController: UIViewController {
     
     @IBAction func startButtonTapped(_ sender: UIButton) {
         
-        if UserDefaults.standard.bool(forKey: "change") == false {
+        if UserDefaults.standard.bool(forKey: TamaEnum.UserDefualts.change.rawValue) == false {
             
-            let sb = UIStoryboard(name: "Main", bundle: nil)
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Main.rawValue, bundle: nil)
             guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController else {
                 return
             }
             let nav = UINavigationController(rootViewController: vc)
             nav.modalPresentationStyle = .fullScreen
             
-            UserDefaults.standard.set(true, forKey: "Main")
+            UserDefaults.standard.set(true, forKey: TamaEnum.UserDefualts.main.rawValue)
             
             present(nav, animated: true)
         } else {
@@ -100,8 +100,8 @@ class PopupViewController: UIViewController {
             dismiss(animated: true)
         }
         
-        UserDefaults.standard.set(tamaData?.kind, forKey: "tamaName")
-        UserDefaults.standard.set(tamaData?.number, forKey: "tamaNumber")
+        UserDefaults.standard.set(tamaData?.kind, forKey: TamaEnum.UserDefualts.tamaName.rawValue)
+        UserDefaults.standard.set(tamaData?.number, forKey: TamaEnum.UserDefualts.tamaNumber.rawValue)
     }
 }
 

@@ -11,8 +11,27 @@ class SettingTableViewController: UITableViewController {
 
     static let identifier = "SettingTableViewController"
     
-    let menu = ["내 이름 설정하기", "다마고치 변경하기", "데이터 초기화"]
-    let menuImageName = ["pencil", "moon.fill", "arrow.clockwise"]
+    enum SettingMenu: Int, CaseIterable {
+        case rename
+        case tamaChange
+        case dataReset
+        
+        func menuTitle() -> String {
+            switch self {
+            case .rename: return "내 이름 설정하기"
+            case .tamaChange: return "다마고치 변경하기"
+            case .dataReset: return "데이터 초기화"
+            }
+        }
+        
+        func menuImageName() -> String {
+            switch self {
+            case .rename: return "pencil"
+            case .tamaChange: return "moon.fill"
+            case .dataReset: return "arrow.clockwise"
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,27 +40,22 @@ class SettingTableViewController: UITableViewController {
         self.navigationController?.navigationBar.topItem?.title = ""
         tableView.backgroundColor = .backgroundColor
         tableView.separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-//        print(UserDefaults.standard.bool(forKey: "pop"))
-//        if UserDefaults.standard.bool(forKey: "pop") == true {
-//            navigationController?.popViewController(animated: true)
-//            UserDefaults.standard.set(false, forKey: "pop")
-//            print("테이블뷰 pop 실행됨")
-//        }
-        
         tableView.reloadData()
-        
     }
     
-    
+    var userName: String = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) ?? "대장" {
+        didSet {
+            tableView.reloadRows(at: [IndexPath(row: SettingMenu.rename.rawValue, section: 0)], with: .fade)
+        }
+    }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menu.count
+        return SettingMenu.allCases.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,12 +63,13 @@ class SettingTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.textLabel?.text = menu[indexPath.row]
+        cell.textLabel?.text = SettingMenu.allCases[indexPath.row].menuTitle()
         cell.accessoryType = .disclosureIndicator
-        cell.imageView?.image = UIImage(systemName: menuImageName[indexPath.row])
+        //cell.imageView?.image = UIImage(systemName: menuImageName[indexPath.row])
+        cell.imageView?.image = UIImage(systemName: SettingMenu.allCases[indexPath.row].menuImageName())
         
         if indexPath.row == 0 {
-            cell.detailTextLabel?.text = UserDefaults.standard.string(forKey: "userName")
+            cell.detailTextLabel?.text = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue)
         } else {
             cell.detailTextLabel?.text = nil
         }
@@ -73,27 +88,27 @@ class SettingTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        switch indexPath.row {
-        case 0:
-            let sb = UIStoryboard(name: "Setting", bundle: nil)
+        let menu: SettingMenu = SettingMenu.allCases[indexPath.row]
+        
+        switch menu {
+        case .rename:
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Setting.rawValue, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: RenameViewController.identifier)
             navigationController?.pushViewController(vc, animated: true)
-        case 1:
+        case .tamaChange:
             tamaChange()
-        case 2:
+        case .dataReset:
             resetAlert()
-        default:
-            view.makeToast("오류가 발생했어요ㅠㅠ")
         }
     }
     
     func tamaChange() {
-        let sb = UIStoryboard(name: "Choice", bundle: nil)
+        let sb = UIStoryboard(name: TamaEnum.StoryboardName.Choice.rawValue, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
             return
         }
         
-        UserDefaults.standard.set(true, forKey: "change")
+        UserDefaults.standard.set(true, forKey: TamaEnum.UserDefualts.change.rawValue)
         navigationController?.pushViewController(vc, animated: true)
         
     }
@@ -112,7 +127,7 @@ class SettingTableViewController: UITableViewController {
         for key in UserDefaults.standard.dictionaryRepresentation().keys {
             UserDefaults.standard.removeObject(forKey: key.description)
         }
-        UserDefaults.standard.set(false, forKey: "Main")
+        UserDefaults.standard.set(false, forKey: TamaEnum.UserDefualts.main.rawValue)
         noticeAlert()
     }
     

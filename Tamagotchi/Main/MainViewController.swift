@@ -21,15 +21,13 @@ class MainViewController: UIViewController {
     @IBOutlet weak var waterButton: UIButton!
     
     static let identifier = "MainViewController"
-    var tamaExp = TamaExp()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if UserDefaults.standard.string(forKey: "userName") == nil {
-            UserDefaults.standard.set("대장", forKey: "userName")
+        if UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) == nil {
+            UserDefaults.standard.set("대장", forKey: TamaEnum.UserDefualts.userName.rawValue)
         }
-        
         view.backgroundColor = .backgroundColor
         designContents()
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "person.circle"), style: .plain, target: self, action: #selector(settingButtonTapped))
@@ -41,14 +39,14 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: "tamaName") ?? "오류")
-        guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
+        tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.tamaName.rawValue) ?? "오류")
+        guard let userName = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) else { return }
         navigationItem.title = "\(userName)님의 다마고치"
         levelData()
     }
     
     @objc func settingButtonTapped() {
-        let sb = UIStoryboard(name: "Setting", bundle: nil)
+        let sb = UIStoryboard(name: TamaEnum.StoryboardName.Setting.rawValue, bundle: nil)
         guard let vc = sb.instantiateViewController(withIdentifier: SettingTableViewController.identifier) as? SettingTableViewController else {
             return
         }
@@ -63,15 +61,15 @@ class MainViewController: UIViewController {
             if count! > 99 {
                 view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ", position: .top)
             } else {
-                tamaExp.rice += count!
-                view.makeToast(tamaExp.expPercentStr(), position: .top)
+                TamaExp.rice += count!
+                view.makeToast(TamaExp.expPercentStr(), position: .top)
             }
         } else {
-            tamaExp.rice += 1
-            view.makeToast(tamaExp.expPercentStr(), position: .top)
+            TamaExp.rice += 1
+            view.makeToast(TamaExp.expPercentStr(), position: .top)
         }
         
-        UserDefaults.standard.set(tamaExp.rice, forKey: "rice")
+        UserDefaults.standard.set(TamaExp.rice, forKey: TamaEnum.UserDefualts.rice.rawValue)
         levelData()
         riceTextField.text = nil
     }
@@ -84,16 +82,16 @@ class MainViewController: UIViewController {
             if count! > 49 {
                 view.makeToast("한번에 먹을 수 없는 양이에요ㅠㅠ", position: .top)
             } else {
-                tamaExp.water += count!
-                view.makeToast(tamaExp.expPercentStr(), position: .top)
+                TamaExp.water += count!
+                view.makeToast(TamaExp.expPercentStr(), position: .top)
             }
         } else {
-            tamaExp.water += 1
-            view.makeToast(tamaExp.expPercentStr(), position: .top)
+            TamaExp.water += 1
+            view.makeToast(TamaExp.expPercentStr(), position: .top)
         }
         
-        print(tamaExp.calculate())
-        UserDefaults.standard.set(tamaExp.water, forKey: "water")
+        print(TamaExp.calculate())
+        UserDefaults.standard.set(TamaExp.water, forKey: TamaEnum.UserDefualts.water.rawValue)
         levelData()
         waterTextField.text = nil
     }
@@ -116,21 +114,21 @@ class MainViewController: UIViewController {
     }
     
     func levelData() {
-        let level = tamaExp.calculate()
-        let rice = UserDefaults.standard.integer(forKey: "rice")
-        let water = UserDefaults.standard.integer(forKey: "water")
-        guard let number = UserDefaults.standard.string(forKey: "tamaNumber") else { return }
+        let level = TamaExp.calculate()
+        let rice = UserDefaults.standard.integer(forKey: TamaEnum.UserDefualts.rice.rawValue)
+        let water = UserDefaults.standard.integer(forKey: TamaEnum.UserDefualts.water.rawValue)
+        guard let number = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.tamaNumber.rawValue) else { return }
         
         tamagotchiLevelLabel.disignNormalLabel(text: "LV\(level), 밥알\(rice)개, 물방울\(water)개")
         print("\(number)-\(level)")
-        messageLabel.disignNormalLabel(text: TamaInfo().tamaText.randomElement() ?? "오류")
+        messageLabel.disignNormalLabel(text: TamaInfo.tamaText.randomElement() ?? "오류")
 
         tamagotchiImageView.image = UIImage(named: "\(number)-\(level)") ?? UIImage(systemName: "xmark.app")!
 
     }
     
     func loadTamaData() {
-        UserDefaults.standard.string(forKey: "tamaName")
+        UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.tamaName.rawValue)
     }
     
     @IBAction func tapGesture(_ sender: UITapGestureRecognizer) {
@@ -140,5 +138,4 @@ class MainViewController: UIViewController {
     }
     @IBAction func waterTextFieldReturn(_ sender: UITextField) {
     }
-    
 }

@@ -14,16 +14,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        UserDefaults.standard.set(false, forKey: "pop")
-        UserDefaults.standard.set(false, forKey: "change")
+        UserDefaults.standard.set(false, forKey: TamaEnum.UserDefualts.pop.rawValue)
+        UserDefaults.standard.set(false, forKey: TamaEnum.UserDefualts.change.rawValue)
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        if !(UserDefaults.standard.bool(forKey: "Main")) {
+        if !(UserDefaults.standard.bool(forKey: TamaEnum.UserDefualts.main.rawValue)) {
             
-            let sb = UIStoryboard(name: "Choice", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: "ChoiceCollectionViewController") as? ChoiceCollectionViewController else {
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Choice.rawValue, bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: ChoiceCollectionViewController.identifier) as? ChoiceCollectionViewController else {
                 return
             }
 
@@ -31,8 +31,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
         } else {
             
-            let sb = UIStoryboard(name: "Main", bundle: nil)
-            guard let vc = sb.instantiateViewController(withIdentifier: "MainViewController") as? MainViewController else {
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Main.rawValue, bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: MainViewController.identifier) as? MainViewController else {
                 return
             }
 
