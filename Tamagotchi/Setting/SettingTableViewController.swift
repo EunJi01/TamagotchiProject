@@ -25,6 +25,7 @@ class SettingTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         
 //        print(UserDefaults.standard.bool(forKey: "pop"))
 //        if UserDefaults.standard.bool(forKey: "pop") == true {

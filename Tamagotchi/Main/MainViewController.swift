@@ -39,6 +39,8 @@ class MainViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         tamagotchiNameLabel.designNameLabel(name: UserDefaults.standard.string(forKey: "tamaName") ?? "오류")
         guard let userName = UserDefaults.standard.string(forKey: "userName") else { return }
         navigationItem.title = "\(userName)님의 다마고치"
