@@ -28,6 +28,11 @@ class RenameViewController: UIViewController {
             view.makeToast("이름은 2~6글자로 입력해주세용!", position: .top)
         } else {
             UserDefaults.standard.set("\(renameTextField.text!)", forKey: TamaEnum.UserDefualts.userName.rawValue)
+            
+            let sb = UIStoryboard(name: TamaEnum.StoryboardName.Setting.rawValue, bundle: nil)
+            guard let vc = sb.instantiateViewController(withIdentifier: SettingTableViewController.identifier) as? SettingTableViewController else { return }
+            vc.userName = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue)!
+            
             navigationController?.popViewController(animated: true)
         }
     }

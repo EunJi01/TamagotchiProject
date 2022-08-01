@@ -33,6 +33,14 @@ class SettingTableViewController: UITableViewController {
         }
     }
     
+    var userName: String = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) ?? "대장" {
+        didSet {
+            //tableView.reloadData() // reloadRows, reloadData 둘 다 동작 안됨
+            self.tableView.reloadRows(at: [IndexPath(row: SettingMenu.rename.rawValue, section: 0)], with: .fade)
+            print("didSet 실행됨") // 근데 이건 찍힌다
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -45,13 +53,7 @@ class SettingTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        tableView.reloadData()
-    }
-    
-    var userName: String = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) ?? "대장" {
-        didSet {
-            tableView.reloadRows(at: [IndexPath(row: SettingMenu.rename.rawValue, section: 0)], with: .fade)
-        }
+        //tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -131,7 +133,6 @@ class SettingTableViewController: UITableViewController {
         noticeAlert()
     }
     
-    // 어플을 시뮬레이터에서 종료했다가 다시 켜서 초기화하면 rootView로 안돌아가짐 --> 특정 조건에서 핸들러가 작동을 안함 (print가 아예 안나옴)
     func noticeAlert() {
         let alert = UIAlertController(title: "다마고치가 자연으로 돌아갔어요!", message: "초기 화면으로 이동합니다", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "웅!", style: .cancel, handler: { _ in self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)/*print("리셋 실행됨")*/ })

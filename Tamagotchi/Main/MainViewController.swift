@@ -25,6 +25,9 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
         if UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) == nil {
             UserDefaults.standard.set("대장", forKey: TamaEnum.UserDefualts.userName.rawValue)
         }
@@ -43,6 +46,20 @@ class MainViewController: UIViewController {
         guard let userName = UserDefaults.standard.string(forKey: TamaEnum.UserDefualts.userName.rawValue) else { return }
         navigationItem.title = "\(userName)님의 다마고치"
         levelData()
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @objc func settingButtonTapped() {
@@ -73,8 +90,7 @@ class MainViewController: UIViewController {
         levelData()
         riceTextField.text = nil
     }
-    
-    // 나중에 스위치와 매개변수를 활용해서 코드 리펙토링 하기
+
     @IBAction func waterButtonTapped(_ sender: UIButton) {
         let count = Int(waterTextField.text!)
         
